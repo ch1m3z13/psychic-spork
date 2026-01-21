@@ -26,6 +26,7 @@ import {
   Wallet
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LandingPage from './LandingPage'; // Import the new Landing Page
 
 // --- Utility Components ---
 
@@ -1031,6 +1032,7 @@ const ConnectWalletView = ({ onConnect }) => {
 // --- Main Layout ---
 
 export default function GhostProtocolApp() {
+  const [view, setView] = useState('landing'); // 'landing' | 'app'
   const [activeTab, setActiveTab] = useState('dashboard');
   const [privacyMode, setPrivacyMode] = useState(true);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -1053,6 +1055,11 @@ export default function GhostProtocolApp() {
       )}
     </button>
   );
+
+  // View Routing Logic
+  if (view === 'landing') {
+    return <LandingPage onLaunch={() => setView('app')} />;
+  }
 
   if (!isConnected) {
     return <ConnectWalletView onConnect={() => setIsConnected(true)} />;
