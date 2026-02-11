@@ -43,7 +43,7 @@ const LandingPage = ({ onLaunch }) => {
       </div>
 
       {/* Navbar */}
-      <nav className="relative z-50 border-b border-white/5 backdrop-blur-md bg-zinc-950/50 sticky top-0">
+      <nav className="relative z-50 border-b border-white/5 backdrop-blur-md bg-zinc-950/50 sticky top-0 safe-top">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-gradient-to-br from-zinc-100 to-zinc-400 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-500/10">

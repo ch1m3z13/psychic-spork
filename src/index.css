@@ -2,49 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Full Screen Setup - Ensures all pages fill device viewport */
+/* Full Screen Setup - Edge to Edge Coverage */
 @layer base {
-  html, body, #root {
-    @apply h-full w-full;
+  * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
   
   html {
-    /* Prevents bounce scrolling on iOS */
-    overflow: hidden;
+    /* Critical: Prevents bounce scrolling on iOS */
     position: fixed;
     width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
   
   body {
-    /* Enable smooth scrolling on the body */
-    overflow: auto;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     position: relative;
+    /* Prevent text size adjustment on mobile browsers */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Handle safe areas on iOS (notch, home indicator) */
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
-
-  /* Better mobile viewport handling */
-  @supports (-webkit-touch-callout: none) {
-    /* iOS-specific full height */
-    html, body {
-      height: -webkit-fill-available;
-    }
+  
+  #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 }
 
-/* Utility classes for full screen */
+/* Mobile-Optimized Utility Classes */
 @layer utilities {
-  .full-screen {
-    @apply h-screen;
-    /* Fallback for browsers that don't support dvh */
+  /* Perfect full screen - accounts for mobile browser UI */
+  .full-screen-mobile {
+    width: 100vw;
     height: 100vh;
-    /* Use dynamic viewport height for mobile browsers */
+    /* For iOS - dynamic viewport that adjusts for address bar */
     height: 100dvh;
+    /* For older iOS devices */
+    @supports (-webkit-touch-callout: none) {
+      height: -webkit-fill-available;
+    }
   }
   
-  .min-full-screen {
-    @apply min-h-screen;
+  /* Minimum full screen for scrollable content */
+  .min-full-screen-mobile {
+    min-width: 100vw;
     min-height: 100vh;
     min-height: 100dvh;
+    @supports (-webkit-touch-callout: none) {
+      min-height: -webkit-fill-available;
+    }
+  }
+  
+  /* Safe area padding utilities */
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  /* Remove safe areas (when you want edge-to-edge) */
+  .no-safe-areas {
+    padding: 0 !important;
   }
 }
