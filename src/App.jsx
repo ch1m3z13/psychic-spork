@@ -969,7 +969,7 @@ const FirstMate = ({ onReturn }) => {
   );
 };
 
-// 6. CONNECT WALLET VIEW
+// 6. CONNECT WALLET VIEW.
 const ConnectWalletView = ({ onConnect }) => {
   const [isConnecting, setIsConnecting] = useState(false);
 
@@ -982,7 +982,7 @@ const ConnectWalletView = ({ onConnect }) => {
   };
 
   return (
-    <div className="full-screen bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="full-screen-mobile bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-emerald-900/5 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-zinc-800/5 rounded-full blur-[120px]"></div>
@@ -1066,10 +1066,10 @@ export default function GhostProtocolApp() {
   }
 
   return (
-    <div className="full-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex">
+    <div className="full-screen-mobile bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex">
       
       {/* Sidebar */}
-      <aside className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-zinc-950 border-r border-zinc-900 z-40 transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+      <aside className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-zinc-950 border-r border-zinc-900 z-40 transition-transform duration-300 safe-top safe-bottom ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-8 flex items-center gap-3 mb-8">
            <div className="w-8 h-8 bg-zinc-100 rounded flex items-center justify-center">
              <div className="w-4 h-4 bg-zinc-950 rounded-sm rotate-45"></div>
@@ -1104,7 +1104,7 @@ export default function GhostProtocolApp() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 relative h-screen overflow-y-auto">
+      <main className="flex-1 min-w-0 relative h-screen overflow-y-auto safe-top safe-bottom">
         {/* Mobile Header */}
         <div className="lg:hidden p-4 border-b border-zinc-900 flex justify-between items-center sticky top-0 bg-zinc-950/80 backdrop-blur z-30">
           <span className="font-bold text-sm">GHOST PROTOCOL</span>
