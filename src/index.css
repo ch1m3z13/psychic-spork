@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Full Screen Setup - Ensures all pages fill device viewport */
+@layer base {
+  html, body, #root {
+    @apply h-full w-full;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    /* Prevents bounce scrolling on iOS */
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+  
+  body {
+    /* Enable smooth scrolling on the body */
+    overflow: auto;
+    position: relative;
+  }
+
+  /* Better mobile viewport handling */
+  @supports (-webkit-touch-callout: none) {
+    /* iOS-specific full height */
+    html, body {
+      height: -webkit-fill-available;
+    }
+  }
+}
+
+/* Utility classes for full screen */
+@layer utilities {
+  .full-screen {
+    @apply h-screen;
+    /* Fallback for browsers that don't support dvh */
+    height: 100vh;
+    /* Use dynamic viewport height for mobile browsers */
+    height: 100dvh;
+  }
+  
+  .min-full-screen {
+    @apply min-h-screen;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
