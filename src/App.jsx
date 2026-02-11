@@ -982,7 +982,7 @@ const ConnectWalletView = ({ onConnect }) => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden">
+    <div className="full-screen bg-zinc-950 flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background Ambience */}
       <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-emerald-900/5 rounded-full blur-[120px]"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-zinc-800/5 rounded-full blur-[120px]"></div>
@@ -1066,7 +1066,7 @@ export default function GhostProtocolApp() {
   }
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex">
+    <div className="full-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex overflow-hidden">
       
       {/* Sidebar */}
       <aside className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-zinc-950 border-r border-zinc-900 z-40 transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
