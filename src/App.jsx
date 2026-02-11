@@ -1066,7 +1066,7 @@ export default function GhostProtocolApp() {
   }
 
   return (
-    <div className="full-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex overflow-hidden">
+    <div className="full-screen bg-zinc-950 text-zinc-200 font-sans selection:bg-emerald-900 selection:text-emerald-200 flex">
       
       {/* Sidebar */}
       <aside className={`fixed lg:sticky top-0 left-0 h-screen w-72 bg-zinc-950 border-r border-zinc-900 z-40 transition-transform duration-300 ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
@@ -1104,7 +1104,7 @@ export default function GhostProtocolApp() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 relative">
+      <main className="flex-1 min-w-0 relative h-screen overflow-y-auto">
         {/* Mobile Header */}
         <div className="lg:hidden p-4 border-b border-zinc-900 flex justify-between items-center sticky top-0 bg-zinc-950/80 backdrop-blur z-30">
           <span className="font-bold text-sm">GHOST PROTOCOL</span>
